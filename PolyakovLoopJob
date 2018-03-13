@@ -1,0 +1,25 @@
+#!/bin/bash
+clear
+g++ -O3 SU2_v2.cpp -o SU2_v2
+rm PolyakovLoop.txt
+echo working
+echo maybe
+for ((i=1;i<=100;i+=1));
+do
+./SU2_v2 $i
+done
+
+for ((i=100;i<=1000;i+=10));
+do
+./SU2_v2 $i
+done
+for ((i=1000;i<=10000;i+=500));
+do
+./SU2_v2 $i
+done
+for ((i=10000;i<=100000;i+=5000));
+do
+./SU2_v2 $i
+done
+
+./GNUplotscript.gp
